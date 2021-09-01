@@ -9,21 +9,29 @@
         justify-content: center;
         overflow: hidden;
         align-items : center;
+        position: relative;
       }
-
       #progress {
         background: #ebebeb;
-        color: #2F3437;
-        font-family: Helvetica Narrow;
-        font-size: 80%;
         transition: width 1s;
         vertical-align: middle;
-        padding-left: 1%;
         margin: 5px;
         border-radius: 5px 0px 0px 5px;
         width: 0%;
         height: 30px;
         display: flex;
+        align-items: center;
+      }
+      #progressText {
+        color: #a5a8a9;
+        font-family: Helvetica Narrow;
+        font-size: 80%;
+        transition: width 1s;
+        vertical-align: middle;
+        padding-left: 1%;
+        width: 0%;
+        height: 30px;
+        position: absolute;
         align-items: center;
       }
       .container {
@@ -43,7 +51,8 @@
   <body>
     <div class="container">
       <div id="progressBar">
-          <p id="progress"></p>
+        <p id="progressText"></p>
+        <p id="progress"></p>
       </div>
     </div>
     <script>
@@ -69,7 +78,7 @@
     function addFrame() {
         if (result < 100) {
             progress.style.width = result + "%";
-            progress.innerHTML = result + "%";
+            progressText.innerHTML = result + "%";
         }
     }
     </script>
